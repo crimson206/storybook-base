@@ -1,8 +1,24 @@
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, WebSocket, APIRouter
 from fastapi.middleware.cors import CORSMiddleware
-import time
+from pydantic import BaseModel
 
-app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    description: str | None = None
+
+
+class Answer(BaseModel):
+    message: str
+
+
+app = FastAPI(
+    title="ChimichangApp",
+    description="description",
+    summary="Deadpool's favorite app. Nuff said.",
+    version="0.0.1",
+)
+router = APIRouter()
 
 # CORS 설정 추가
 app.add_middleware(
@@ -13,7 +29,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-last_time = time.time()
+
+@app.post("/items/", response_model=Answer)
+def create_item(item: Item):
+    print(item)
+    return {"message": f"Item {item.description} created"}
 
 
 @app.websocket("/ws")  # 엔드포인트 변경: "/ws"
@@ -25,6 +45,7 @@ async def websocket_endpoint(websocket: WebSocket):
         data = await websocket.receive_text()
         print(f"Received text: {data}")  # 수신 메시지 출력
         await websocket.send_text(f"Message text was: {data}")  # 메시지 에코
+
 
 @app.websocket("/ws2")
 async def websocket_endpoint_2(websocket: WebSocket):
