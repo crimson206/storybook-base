@@ -26,23 +26,21 @@
     "init-msw": "msw init public/"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^8.1.1",
-    "@storybook/addon-docs": "^8.1.1",
-    "@storybook/addon-essentials": "^8.1.1",
-    "@storybook/addon-links": "^8.1.1",
-    "@storybook/blocks": "^8.1.1",
-    "@storybook/react": "^8.1.1",
-    "@storybook/react-vite": "^8.1.1",
-    "@storybook/test": "^8.1.1",
+    "@storybook/addon-actions": "^8.1.3",
+    "@storybook/addon-docs": "^8.1.3",
+    "@storybook/addon-essentials": "^8.1.3",
+    "@storybook/addon-links": "^8.1.3",
+    "@storybook/addon-console": "8.0.0-alpha.11",
+    "@storybook/blocks": "^8.1.3",
+    "@storybook/react": "^8.1.3",
+    "@storybook/react-vite": "^8.1.3",
+    "@storybook/test": "^8.1.3",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "prop-types": "^15.8.1",
-    "storybook": "^8.1.1",
+    "storybook": "^8.1.3",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
-  },
-  "resolutions": {
-    "jackspeak": "2.3.6"
   }
 }
